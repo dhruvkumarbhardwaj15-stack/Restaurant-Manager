@@ -55,12 +55,12 @@ export const INITIAL_FOOD_ITEMS: FoodItem[] = [
 export const APP_THEME_COLOR = 'indigo-600';
 
 export const DEFAULT_RESTAURANT_PROFILE: RestaurantProfile = {
-  name: "Dhruv Restaurants",
+  name: "Restaurant Works",
   address: "123 Culinary Avenue, Food City, FC 90210",
   contact: "9876543210",
   logo: "",
-  ownerName: "Dhruv",
-  receiptHeader: "Thank you for ordering from Dhruv Restaurants! 🥗\nWe serve the best food in town.",
+  ownerName: "Admin",
+  receiptHeader: "Thank you for ordering from Restaurant Works! 🥗\nWe serve the best food in town.",
   receiptFooter: "We hope you enjoy your meal! ✨\nPlease leave us a review on Google.",
   themeColor: 'indigo',
   fontPair: 'modern'

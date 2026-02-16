@@ -1,5 +1,5 @@
 
-# 🥗 Dhruv Restaurants - Digital Menu & AI Invoice Generator
+# 🥗 Restaurant Works - Digital Menu & AI Invoice Generator
 
 A world-class, premium digital menu application built for modern food businesses. This app allows restaurant owners to manage their menu, generate professional invoices, and share them instantly via WhatsApp/SMS, all backed by **Supabase** and enhanced by **Google Gemini AI**.
 
