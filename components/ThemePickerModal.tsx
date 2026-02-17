@@ -12,15 +12,17 @@ const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ currentProfile, onU
   const [customFontInput, setCustomFontInput] = useState(currentProfile.customFontFamily || '');
   
   const colors = [
-    { id: 'indigo', name: 'Royal Indigo', bg: 'bg-indigo-600' },
+    // Use hex for Indigo to prevent it from changing when the theme variable changes
+    { id: 'indigo', name: 'Royal Indigo', bg: 'bg-[#4f46e5]' },
     { id: 'orange', name: 'Zesty Orange', bg: 'bg-orange-600' },
     { id: 'rose', name: 'Crimson Rose', bg: 'bg-rose-600' },
     { id: 'emerald', name: 'Fresh Emerald', bg: 'bg-emerald-600' },
+    { id: 'sky', name: 'Sky Blue', bg: 'bg-sky-500' },
   ];
 
   const fonts = [
     { id: 'modern', name: 'Modern Clean', desc: 'Inter + Inter' },
-    { id: 'elegant', name: 'Elegant Bistro', desc: 'Playfair + Lato' },
+    { id: 'elegant', name: 'Oxanium', desc: 'Futuristic & Sci-Fi' },
     { id: 'classic', name: 'Classic Serif', desc: 'Merriweather + Merriweather' },
   ];
 
@@ -117,7 +119,7 @@ const ThemePickerModal: React.FC<ThemePickerModalProps> = ({ currentProfile, onU
                   <div>
                     <span className={`block font-black text-slate-800 text-sm ${
                       f.id === 'elegant' ? 'font-serif' : f.id === 'classic' ? 'font-serif' : 'font-sans'
-                    }`}>
+                    }`} style={{ fontFamily: f.id === 'elegant' ? 'Oxanium' : undefined }}>
                       {f.name}
                     </span>
                     <span className="text-xs text-slate-400 font-medium">{f.desc}</span>

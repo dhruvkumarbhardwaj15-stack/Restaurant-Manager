@@ -201,10 +201,11 @@ const App: React.FC = () => {
       orange: { 50: '#fff7ed', 100: '#ffedd5', 200: '#fed7aa', 600: '#ea580c', 700: '#c2410c' },
       rose:   { 50: '#fff1f2', 100: '#ffe4e6', 200: '#fecdd3', 600: '#e11d48', 700: '#be123c' },
       emerald:{ 50: '#ecfdf5', 100: '#d1fae5', 200: '#a7f3d0', 600: '#059669', 700: '#047857' },
+      sky:    { 50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 600: '#0284c7', 700: '#0369a1' },
     };
     const fontPairs: Record<string, any> = {
       modern: { body: 'Inter', heading: 'Inter' },
-      elegant: { body: 'Lato', heading: 'Playfair Display' },
+      elegant: { body: 'Oxanium', heading: 'Oxanium' }, // Replaced Playfair/Lato with Oxanium
       classic: { body: 'Merriweather', heading: 'Merriweather' },
     };
 
@@ -492,7 +493,7 @@ const App: React.FC = () => {
                   <p className="text-slate-500 font-bold mt-4 uppercase tracking-[0.1em] text-xs">A selection of chef's daily creations.</p>
                 </div>
                 
-                {/* Search Bar Moved Here */}
+                {/* Search Bar with Clear Button */}
                 <div className="w-full md:w-96 relative group">
                     <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
                         <i className="fas fa-search text-slate-400 group-focus-within:text-indigo-600 transition-colors"></i>
@@ -502,8 +503,16 @@ const App: React.FC = () => {
                         placeholder="Search dishes..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
-                        className="block w-full pl-11 pr-4 py-4 bg-white border border-slate-200 rounded-2xl leading-5 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all shadow-sm font-bold text-slate-700"
+                        className="block w-full pl-11 pr-10 py-4 bg-white border border-slate-200 rounded-2xl leading-5 placeholder-slate-400 focus:outline-none focus:bg-white focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all shadow-sm font-bold text-slate-700"
                     />
+                    {searchQuery && (
+                        <button
+                            onClick={() => setSearchQuery('')}
+                            className="absolute inset-y-0 right-0 pr-4 flex items-center text-slate-400 hover:text-slate-600 transition-colors"
+                        >
+                            <i className="fas fa-times"></i>
+                        </button>
+                    )}
                 </div>
               </div>
 
