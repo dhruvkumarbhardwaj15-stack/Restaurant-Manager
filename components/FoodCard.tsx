@@ -14,6 +14,7 @@ const FoodCard: React.FC<FoodCardProps> = ({ item, onUpdateQuantity, getQuantity
   const [size, setSize] = useState<'Half' | 'Full'>('Full');
   
   const currentQuantity = getQuantity(item.id, size);
+  const unit = item.category === 'Drinks' ? 'Glass' : 'Plate';
 
   return (
     <div className="bg-white rounded-2xl overflow-hidden border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-300 group flex flex-col h-full">
@@ -41,13 +42,13 @@ const FoodCard: React.FC<FoodCardProps> = ({ item, onUpdateQuantity, getQuantity
               onClick={() => setSize('Half')}
               className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${size === 'Half' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500'}`}
             >
-              Half Plate
+              Half {unit}
             </button>
             <button 
               onClick={() => setSize('Full')}
               className={`flex-1 py-1.5 text-xs font-bold rounded-lg transition-all ${size === 'Full' ? 'bg-white text-indigo-600 shadow-sm' : 'text-slate-500'}`}
             >
-              Full Plate
+              Full {unit}
             </button>
           </div>
         )}

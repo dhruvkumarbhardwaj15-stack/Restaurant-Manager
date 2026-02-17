@@ -52,41 +52,44 @@ const Cart: React.FC<CartProps> = ({ isOpen, onClose, items, onUpdateQuantity, o
             </div>
           ) : (
             <div className="space-y-6">
-              {items.map((item) => (
-                <div key={item.id + item.selectedSize} className="flex gap-5 group">
-                  <div className="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-slate-100 shadow-sm">
-                    <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
-                  </div>
-                  <div className="flex-1">
-                    <div className="flex justify-between items-start mb-1">
-                      <h4 className="font-black text-slate-800 text-base">{item.name}</h4>
+              {items.map((item) => {
+                const unit = item.category === 'Drinks' ? 'Glass' : 'Plate';
+                return (
+                  <div key={item.id + item.selectedSize} className="flex gap-5 group">
+                    <div className="w-20 h-20 rounded-2xl overflow-hidden shrink-0 border border-slate-100 shadow-sm">
+                      <img src={item.image} alt={item.name} className="w-full h-full object-cover" />
                     </div>
-                    <div className="flex items-center gap-2 mb-3">
-                      <span className="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-[10px] font-black rounded uppercase tracking-wider">
-                        {item.selectedSize} Plate
-                      </span>
-                      <p className="text-indigo-600 font-black text-sm">₹{((item.selectedSize === 'Half' ? item.halfPrice : item.price)! * item.quantity).toFixed(2)}</p>
-                    </div>
-                    <div className="flex items-center gap-4">
-                      <div className="flex items-center bg-slate-100 p-1 rounded-xl">
-                        <button 
-                          onClick={() => onUpdateQuantity(item.id, -1, item.selectedSize)}
-                          className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-slate-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
-                        >
-                          <i className="fas fa-minus text-xs"></i>
-                        </button>
-                        <span className="w-8 text-center font-black text-slate-800">{item.quantity}</span>
-                        <button 
-                          onClick={() => onUpdateQuantity(item.id, 1, item.selectedSize)}
-                          className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-slate-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
-                        >
-                          <i className="fas fa-plus text-xs"></i>
-                        </button>
+                    <div className="flex-1">
+                      <div className="flex justify-between items-start mb-1">
+                        <h4 className="font-black text-slate-800 text-base">{item.name}</h4>
+                      </div>
+                      <div className="flex items-center gap-2 mb-3">
+                        <span className="px-2 py-0.5 bg-indigo-50 text-indigo-600 text-[10px] font-black rounded uppercase tracking-wider">
+                          {item.selectedSize} {unit}
+                        </span>
+                        <p className="text-indigo-600 font-black text-sm">₹{((item.selectedSize === 'Half' ? item.halfPrice : item.price)! * item.quantity).toFixed(2)}</p>
+                      </div>
+                      <div className="flex items-center gap-4">
+                        <div className="flex items-center bg-slate-100 p-1 rounded-xl">
+                          <button 
+                            onClick={() => onUpdateQuantity(item.id, -1, item.selectedSize)}
+                            className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-slate-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
+                          >
+                            <i className="fas fa-minus text-xs"></i>
+                          </button>
+                          <span className="w-8 text-center font-black text-slate-800">{item.quantity}</span>
+                          <button 
+                            onClick={() => onUpdateQuantity(item.id, 1, item.selectedSize)}
+                            className="w-8 h-8 rounded-lg bg-white flex items-center justify-center text-slate-600 hover:bg-indigo-600 hover:text-white transition-all shadow-sm"
+                          >
+                            <i className="fas fa-plus text-xs"></i>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           )}
         </div>

@@ -46,6 +46,8 @@ const FoodFormModal: React.FC<FoodFormModalProps> = ({ item, onClose, onSave }) 
     } as FoodItem);
   };
 
+  const unit = formData.category === 'Drinks' ? 'Glass' : 'Plate';
+
   return (
     <div className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-slate-900/60 backdrop-blur-sm">
       <div className="bg-white w-full max-w-xl rounded-[2.5rem] overflow-hidden shadow-2xl animate-in zoom-in duration-200">
@@ -124,7 +126,7 @@ const FoodFormModal: React.FC<FoodFormModalProps> = ({ item, onClose, onSave }) 
 
           <div className="grid grid-cols-2 gap-4">
             <div className="space-y-2">
-              <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Full Plate (₹)</label>
+              <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Full {unit} (₹)</label>
               <input 
                 required
                 type="number"
@@ -135,7 +137,7 @@ const FoodFormModal: React.FC<FoodFormModalProps> = ({ item, onClose, onSave }) 
               />
             </div>
             <div className="space-y-2">
-              <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Half Plate (₹)</label>
+              <label className="block text-[10px] font-black text-slate-400 uppercase tracking-[0.2em] ml-1">Half {unit} (₹)</label>
               <input 
                 type="number"
                 placeholder="Optional"

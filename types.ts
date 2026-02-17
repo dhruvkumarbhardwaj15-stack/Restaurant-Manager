@@ -27,6 +27,7 @@ export enum Category {
   MainCourse = 'Main Course',
   Desserts = 'Desserts',
   Beverages = 'Beverages',
+  Drinks = 'Drinks',
   Specials = 'Specials'
 }
 
