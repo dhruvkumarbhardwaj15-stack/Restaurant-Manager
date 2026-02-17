@@ -10,8 +10,6 @@ interface HeaderProps {
   onCartClick: () => void;
   isAdmin: boolean;
   onToggleAdmin: () => void;
-  searchQuery: string;
-  onSearchChange: (val: string) => void;
   restaurantProfile: RestaurantProfile;
   onOpenThemePicker: () => void;
 }
@@ -24,8 +22,6 @@ const Header: React.FC<HeaderProps> = ({
   onCartClick, 
   isAdmin, 
   onToggleAdmin,
-  searchQuery,
-  onSearchChange,
   restaurantProfile,
   onOpenThemePicker
 }) => {
@@ -52,18 +48,6 @@ const Header: React.FC<HeaderProps> = ({
 
           {/* Action Cluster - Right */}
           <div className="flex items-center gap-2 ml-auto">
-            {/* Search Bar */}
-            <div className="hidden md:block relative w-48 lg:w-64 transition-all duration-300 mr-2">
-              <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-              <input 
-                type="text"
-                placeholder="Search menu..."
-                value={searchQuery}
-                onChange={(e) => onSearchChange(e.target.value)}
-                className="w-full bg-slate-100/50 border border-transparent rounded-2xl py-2 pl-10 pr-4 focus:bg-white focus:ring-2 focus:ring-indigo-600 focus:border-transparent transition-all outline-none text-sm"
-              />
-            </div>
-
             {/* Theme Button */}
             <button 
               onClick={onOpenThemePicker}
@@ -115,20 +99,6 @@ const Header: React.FC<HeaderProps> = ({
                 </span>
               )}
             </button>
-          </div>
-        </div>
-        
-        {/* Mobile Search */}
-        <div className="md:hidden pb-4">
-          <div className="relative w-full">
-            <i className="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-slate-400 text-xs"></i>
-            <input 
-              type="text"
-              placeholder="Search dishes..."
-              value={searchQuery}
-              onChange={(e) => onSearchChange(e.target.value)}
-              className="w-full bg-slate-100/50 border border-transparent rounded-2xl py-2 pl-10 pr-4 focus:bg-white focus:ring-2 focus:ring-indigo-600 transition-all outline-none text-sm"
-            />
           </div>
         </div>
       </div>
